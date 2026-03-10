@@ -8,28 +8,28 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
-     * Migraciones para profesores
      */
 public function up(): void
 {
-    // QUITAMOS la llave que tenías al final de esta línea
-    Schema::create('corse_teachers', function (Blueprint $table) {
-        $table->id(); 
+    Schema::create('teachers', function (Blueprint $table) {
+        // Corrección: define la columna manualmente como PK
+        $table->bigIncrements('id_teacher'); 
+        
         $table->string('name');
         $table->string('email');
         
         // FKs
         $table->foreignId('area_id')->constrained('areas');
         $table->foreignId('training_center_id')->constrained('training_centers');
+        
         $table->timestamps();
-    }); // La llave de cierre va al final de todo el bloque
+    });
 }
-
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('corse_teachers');
+        Schema::dropIfExists('teachers');
     }
 };

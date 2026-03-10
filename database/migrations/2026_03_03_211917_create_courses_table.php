@@ -8,11 +8,19 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
+     * Migraciones para cursos
      */
     public function up(): void
     {
         Schema::create('courses', function (Blueprint $table) {
             $table->id();
+            $table->string('course_number');
+            $table->string('day');
+    
+            // FKs
+            $table->foreignId('area_id')->constrained('areas');
+            $table->foreignId('training_center_id')->constrained('training_centers');
+            
             $table->timestamps();
         });
     }

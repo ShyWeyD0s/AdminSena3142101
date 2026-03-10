@@ -8,12 +8,13 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
+     * Migraciones para areas
      */
     public function up(): void
     {
         Schema::create('areas', function (Blueprint $table) {
-        $table->id(); // PK
-        $table->string('name');
+            $table->id(); // PK
+            $table->string('name');
             $table->timestamps();
         });
     }

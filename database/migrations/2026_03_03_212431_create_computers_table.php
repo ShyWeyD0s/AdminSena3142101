@@ -8,6 +8,7 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
+     * Migraciones para equipos
      */
     public function up(): void
     {
@@ -15,7 +16,6 @@ return new class extends Migration
             $table->id();
             $table->string('number');
             $table->string('brand');
-
             $table->timestamps();
         });
     }
