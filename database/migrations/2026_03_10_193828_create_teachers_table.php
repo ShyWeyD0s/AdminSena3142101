@@ -13,8 +13,7 @@ public function up(): void
 {
     Schema::create('teachers', function (Blueprint $table) {
         // Corrección: define la columna manualmente como PK
-        $table->bigIncrements('id_teacher'); 
-        
+        $table->id();
         $table->string('name');
         $table->string('email');
         
