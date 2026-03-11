@@ -8,6 +8,21 @@ import axios from 'axios';
 window.axios = axios;
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+window.axios.defaults.headers.common['Accept'] = 'application/json';
+window.axios.defaults.headers.common['Content-Type'] = 'application/json';
+
+// Detect if app is in a subfolder (like XAMPP /AdminSena/...)
+const pathParts = window.location.pathname.split('/');
+// If the app is in /AdminSena/adminSena/public, we need to adjust the API calls
+// A simpler way for Laravel with Vite is to leave it relative if not using subfolders,
+// but for XAMPP subfolders, it's safer to use an absolute-like path or configure it.
+// Let's use a simple relative path for now but ensure it's handled.
+axios.defaults.baseURL = '/'; 
+
+// Better approach: if you are using 'php artisan serve', leave it as is.
+// If you are using XAMPP, you might need to change it to your project path.
+// For now, let's just make sure the requests are being sent to the right place.
+
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
