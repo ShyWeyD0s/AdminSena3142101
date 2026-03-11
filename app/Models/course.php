@@ -5,13 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class course extends Model
+class Course extends Model
 {
     use HasFactory;
 
      public function training_center()
     {
-        return $this->belongsTo(Training_center::class);
+        return $this->belongsTo(TrainingCenter::class);
     }
 }
 
